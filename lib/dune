@@ -1,0 +1,9 @@
+(library
+  (name rt)
+  (modules_without_implementation material)
+  (libraries domainslib yojson-five))
+
+(env
+  (dev
+    (flags
+      (:standard -w -32-27-34-69-37))))

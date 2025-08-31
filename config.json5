@@ -1,0 +1,153 @@
+{
+  // The filename prefix for both the image for each generated frame and the final video.
+  "filename_prefix": "test",
+
+  // The number of frames to output in total, and the frames-per-second of the video.
+  "n_frames": 72,
+  "fps": 24,
+
+  // The vertical FOV of the camera, the width of the image in pixels, and its aspect ratio.
+  "fov_degrees": 60,
+  "image_width": 1080,
+  "aspect_ratio": 1.7778,
+
+  // The number of threads to use to render.
+  "thread_count": 10,
+
+  // The number of samples to use for antialiasing. More = smoother image, but slower.
+  "samples_per_pixel": 100,
+
+  // The number of times a ray may rebound.
+  // More = more realistic lighting, but slower.
+  "max_ray_rebounds": 50,
+
+  // The start and end point of the camera; will be linearly interpolated between.
+  "camera": {
+    "start": [0, 0, -10],
+    "finish": [0, 0, -3],
+  },
+
+  // The start and end location of the focal point; will be interpolated between.
+  "focus": {
+    "start": [0, 0, 0],
+    "finish": [0, 0, 0],
+  },
+
+  // Materials to use in rendering the scene.
+  "materials": {
+    "ground1": {
+      "type": "dielectric",
+      "index": 1.4,
+    },
+
+    "ground2": {
+      "type": "lambertian",
+      "albedo": [0.8, 0.8, 0.8],
+    },
+
+    "red": {
+      "type": "metal",
+      "albedo": [0.8, 0.0, 0.0],
+      "fuzziness": 0.6,
+    },
+
+    "green": {
+      "type": "metal",
+      "albedo": [0.0, 0.8, 0.0],
+      "fuzziness": 0.6,
+    },
+
+    "blue": {
+      "type": "metal",
+      "albedo": [0.0, 0.0, 0.8],
+      "fuzziness": 0.6,
+    },
+
+    "metallic": {
+      "type": "metal",
+      "albedo": [0.7, 0.55, 0.2],
+      "fuzziness": 0.0
+    },
+
+    "matte": {
+      "type": "lambertian",
+      "albedo": [0.3, 0.6, 0.3],
+    },
+
+    "bubble": {
+      "type": "dielectric",
+      "index": 0.7,
+    },
+  },
+
+  // The objects that make up the scene.
+  // Each object must have an assigned material as specified in `materials` above.
+  "world": [
+    {
+      "geometry": "sphere",
+      "center": [0.0, -100.5, 0.0],
+      "radius": 100,
+      "material": "ground1",
+    },
+    {
+      "geometry": "sphere",
+      "center": [0.0, -100.5, 0.0],
+      "radius": 90,
+      "material": "ground2",
+    },
+    {
+      "geometry": "sphere",
+      "center": [-3.0, 0.0, 0.0],
+      "radius": 1,
+      "material": "red",
+    },
+    {
+      "geometry": "sphere",
+      "center": [0.0, 0.0, 0.0],
+      "radius": 1,
+      "material": "green",
+    },
+    {
+      "geometry": "sphere",
+      "center": [3.0, 0.0, 0.0],
+      "radius": 1,
+      "material": "blue",
+    },
+    {
+      "geometry": "sphere",
+      "center": [-3.0, 3.0, 6.0],
+      "radius": 0.6,
+      "material": "bubble",
+    },
+    {
+      "geometry": "sphere",
+      "center": [0.0, 3.0, 6.0],
+      "radius": 0.6,
+      "material": "bubble",
+    },
+    {
+      "geometry": "sphere",
+      "center": [3.0, 3.0, 6.0],
+      "radius": 0.6,
+      "material": "bubble",
+    },
+    {
+      "geometry": "sphere",
+      "center": [0.0, 5.0, 12.0],
+      "radius": 5.0,
+      "material": "metallic"
+    },
+    {
+      "geometry": "sphere",
+      "center": [5.0, 3.0, -2.0],
+      "radius": 0.3,
+      "material": "matte"
+    },
+    {
+      "geometry": "sphere",
+      "center": [-5.0, 3.0, -2.0],
+      "radius": 0.3,
+      "material": "matte"
+    },
+  ],
+}
